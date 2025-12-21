@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nurchik-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nurchik-web
+  template:
+    metadata:
+      labels:
+        app: nurchik-web
+    spec:
+      containers:
+        - name: web
+          image: nur4ike/nurchik-cicd:v2
+          ports:
+            - containerPort: 80
