@@ -17,3 +17,10 @@ spec:
           image: nur4ike/nurchik-cicd:v2
           ports:
             - containerPort: 80
+	- name: nginx-exporter
+    	  image: nginx/nginx-prometheus-exporter:1.1.0
+          args:
+           - -nginx.scrape-uri=http://127.0.0.1:80/stub_status
+          ports:
+            - name: metrics
+              containerPort: 9113
