@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: nurchik-web
+  labels:
+    release: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: nurchik-web
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 15s
+
